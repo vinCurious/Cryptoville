@@ -1,3 +1,4 @@
+package model.Product;
 public interface ProductInterface{
 	
 	int getProductID();

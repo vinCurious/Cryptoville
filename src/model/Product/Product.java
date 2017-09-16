@@ -1,3 +1,4 @@
+package model.Product;
 public class Product implements ProductInterface {
 
 	int productID;
@@ -8,7 +9,7 @@ public class Product implements ProductInterface {
 		
 	}
 	
-	Product(int productID, String productName, double price){
+	public Product(int productID, String productName, double price){
 		this.productID = productID;
 		this.productName = productName;
 		this.price = price;

@@ -1,3 +1,6 @@
+package model.Transaction;
+import model.Product.Product;
+
 public class Transaction implements TransactionInterface {
 		
 	int farmerID;
@@ -7,7 +10,7 @@ public class Transaction implements TransactionInterface {
 		
 	}
 	
-	Transaction(int farmerID, Product currentProduct){
+	public Transaction(int farmerID, Product currentProduct){
 		this.farmerID = farmerID;
 		this.emittedProduct = currentProduct;
 	}

@@ -1,3 +1,6 @@
+package model.Transaction;
+import model.Product.Product;
+
 public interface TransactionInterface{
 	
 	int getFarmerID();
