@@ -36,7 +36,6 @@ public class Controller {
 		}
 		System.out.println("Product table created successfully");
 */
-		
 		try {
 			stmt = c.createStatement();
 			String sql1 = "DROP TABLE IF EXISTS Farmer";
