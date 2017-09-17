@@ -106,7 +106,7 @@ public class Machine implements MachineInterface {
 		int currentFarmerID = ThreadLocalRandom.current().nextInt(0, farmerCount);
 		int currentProductID = ThreadLocalRandom.current().nextInt(0, 21);
 		String currentProductName = productList.get(currentProductID);
-		double currentPrice = ThreadLocalRandom.current().nextDouble(0.5, 30.0);
+		double currentPrice = ThreadLocalRandom.current().nextDouble(0.5, 5.0);
 
 		System.out.println("new instance at: farmerID: " + currentFarmerID);
 		System.out.println("productID: " + currentProductID + " price: " + currentPrice);
