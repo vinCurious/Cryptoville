@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -14,10 +15,14 @@ import model.Transaction.Transaction;
 
 public class Machine implements MachineInterface {
 
-	static Map<Integer, String> productList;
+	static Map<Integer, String> productList; //productID <--> productName
 	static Hashtable<Integer, Integer> productQuantity = new Hashtable<Integer, Integer>();
+	//productID <--> total products
 	static Hashtable<Integer, Double> productValues = new Hashtable<Integer, Double>();
-
+	// productID <--> Average price of product
+	
+	static Hashtable<Integer, HashSet<Integer>> farmerProducts = new Hashtable<Integer, HashSet<Integer>>();
+	// farmerID <--> set {productID}
 	static {
 		productList = new HashMap<Integer, String>();
 		productList.put(0, "Apple");
@@ -119,9 +124,20 @@ public class Machine implements MachineInterface {
 		System.out.println("New Transaction emitted by " + Thread.currentThread() + " for farmer " + currentFarmerID
 				+ ", productID: " + currentProductID + " , ProductName: " + currentProductName + "  ,ProductPrice: "
 				+ currentPrice);
-
+		
+		HashSet<Integer> hs = new HashSet<Integer>();
+		if(farmerProducts.containsKey(currentFarmerID)) {
+			
+			hs = farmerProducts.get(currentFarmerID);
+			hs.add(currentProductID);
+			farmerProducts.put(currentFarmerID, hs);
+		} else {
+			hs.add(currentProductID);
+			farmerProducts.put(currentFarmerID, hs);
+		}
+		System.out.println("farmer ID: "+ currentFarmerID + " - Products -> "+ farmerProducts.get(currentFarmerID));
 		if (productValues.containsKey((currentProductID))) {
-			// System.out.println("----Currrent Product Price Table
+			// System.out.println("----Current Product Price Table
 			// before-----\n"+productValues);
 
 			productValues.put(currentProductID,
