@@ -15,13 +15,15 @@ import model.Transaction.Transaction;
 
 public class Machine implements MachineInterface {
 
-	static Map<Integer, String> productList; //productID <--> productName
+	public static Map<Integer, String> productList; //productID <--> productName
+	public static Map<String, Integer> productListReverse; //productName <--> productID
+
 	static Hashtable<Integer, Integer> productQuantity = new Hashtable<Integer, Integer>();
 	//productID <--> total products
-	static Hashtable<Integer, Double> productValues = new Hashtable<Integer, Double>();
+	public static Hashtable<Integer, Double> productValues = new Hashtable<Integer, Double>();
 	// productID <--> Average price of product
 	
-	static Hashtable<Integer, HashSet<Integer>> farmerProducts = new Hashtable<Integer, HashSet<Integer>>();
+	public static Hashtable<Integer, HashSet<Integer>> farmerProducts = new Hashtable<Integer, HashSet<Integer>>();
 	// farmerID <--> set {productID}
 	static {
 		productList = new HashMap<Integer, String>();
@@ -46,6 +48,29 @@ public class Machine implements MachineInterface {
 		productList.put(18, "Raspberry");
 		productList.put(19, "Strawberry");
 		productList.put(20, "Watermelon");
+		
+		productListReverse =  new HashMap<String, Integer>();
+		productListReverse.put("Apple",0);
+		productListReverse.put("Apricot",1);
+		productListReverse.put("Avocado",2);
+		productListReverse.put("Banana",3);
+		productListReverse.put("Cherry",4);
+		productListReverse.put("Citrus",5);
+		productListReverse.put("Coconut",6);
+		productListReverse.put("DragonFruit",7);
+		productListReverse.put("Durian",8);
+		productListReverse.put("Grapes",9);
+		productListReverse.put("Kiwi",10);
+		productListReverse.put("Melon",11);
+		productListReverse.put("Orange", 12);
+		productListReverse.put("Papaya",13);
+		productListReverse.put("Pear",14);
+		productListReverse.put("Pineapple",15);
+		productListReverse.put("Plum",16);
+		productListReverse.put("Pomegranate",17);
+		productListReverse.put("Raspberry",18);
+		productListReverse.put("Strawberry",19);
+		productListReverse.put("Watermelon",20);
 	}
 
 	public Machine() {
