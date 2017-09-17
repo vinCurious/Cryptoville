@@ -31,8 +31,8 @@ public class RegisterMe implements RegisterMeInterface{
 		
 	}
 
-	public static boolean registerBuyer(int buyerID, String buyerName, double balance, String buyerStreetAddress,
-			String buyerCity, String buyerState, String buyerZipCode, String walletAddress, Connection c) {
+	public static boolean registerBuyer(int buyerID, String buyerName, String buyerStreetAddress,
+			String buyerCity, String buyerState, String buyerZipCode, double balance, String walletAddress, Connection c) {
 		// TODO Auto-generated method stub
 
 		Statement stmt=null;
